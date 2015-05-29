@@ -3,7 +3,7 @@ app/styles/helpers/sprite.styl
 app/styles/helpers/svg.styl
 app/images/sprite.png
 components
-dist
+
 
 # Numerous always-ignore extensions
 *.bak
