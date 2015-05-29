@@ -1,0 +1,138 @@
+.service
+	width 100%
+	display table
+	font-size 0
+
+	&__item
+		position relative
+		min-width 600px
+		width 50%
+		height 420px
+		display inline-block
+		color #000
+
+		&-wrap
+			position absolute
+			top 0
+			left 0
+			padding 120px 14% 0
+			width 100%
+			height 100%
+
+		&-img
+			width 100%
+			height 100%
+
+		&-title
+			margin 0 auto
+			width 260px
+			font-family ubuntu-b
+			font-size 33px
+			line-height 40px
+			text-transform uppercase
+			text-align center
+
+			&_color_white
+				color #fff
+
+		&-text
+			font-family officina-book-r
+			font-size 20px
+			line-height 26px
+			text-align center
+
+			&_color_white
+				color #fff
+
+			&_p_85
+				padding 0px 85px
+
+		&-separator
+			position relative
+			margin 13px auto
+			size(23px)
+
+			&:before
+			&:after
+				position absolute
+				top 10px
+				left -5px
+				width 30px
+				height 1px
+				content ''
+				background-color #000
+
+			&:before
+				transform rotate(45deg)
+
+			&:after
+				transform rotate(-45deg)
+
+			&_color_white
+
+				&:before
+				&:after
+					background-color #fff
+
+		&-btn
+			position absolute
+			top 29px
+			right 38px
+			size(37px)
+			border-radius 50%
+			border 1px solid #fff
+			opacity .45
+			//sprite($icon-question-white)
+			cursor pointer
+
+			&:before
+				position absolute
+				top 8px
+				left 14px
+				content '?'
+				font-family officina-book-r
+				font-size 20px
+				color #fff
+
+			&_color_black
+				border-color #000
+
+				&:before
+					color #000
+				//spritePosition($icon-question-black)
+
+@media only screen and (min-width: 1500px) and (max-width: 1599px)
+	.service
+
+		&__item
+			height 394px
+
+			&-wrap
+				padding 105px 10% 0
+
+@media only screen and (min-width: 1400px) and (max-width: 1499px)
+	.service
+
+		&__item
+			height 368px
+
+			&-wrap
+				padding 95px 10% 0
+
+@media only screen and (min-width: 1300px) and (max-width: 1399px)
+	.service
+
+		&__item
+			height 341px
+
+			&-wrap
+				padding 80px 6% 0
+
+@media only screen and (max-width: 1299px)
+	.service
+
+		&__item
+			height 315px
+
+			&-wrap
+				padding 65px 6% 0

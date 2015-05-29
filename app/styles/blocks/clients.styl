@@ -1,0 +1,142 @@
+.clients
+
+	&-container
+		padding 147px 100px 197px
+
+	&__row
+		width 100%
+		height 68px
+		font-size 0
+		text-align center
+
+		& + &
+			margin-top 120px
+
+		&_interval_104
+
+			& .clients__item + .clients__item
+				margin-left 102px
+
+	&__item
+		display inline-block
+		vertical-align middle
+
+		&_type
+
+			&_mumu
+				sprite($icon-mumu)
+
+			&_wokker
+				sprite($icon-wokker)
+
+			&_ap
+				sprite($icon-ap)
+
+			&_kp
+				sprite($icon-kp)
+
+			&_qiwi
+				sprite($icon-qiwi)
+
+			&_fb
+				sprite($icon-clients-fb)
+
+			&_fh
+				sprite($icon-fh)
+
+			&_peugeot
+				sprite($icon-peugeot)
+
+			&_chocolate
+				sprite($icon-chocolate)
+
+			&_star
+				sprite($icon-star)
+
+			&_zvooq
+				sprite($icon-zvooq)
+
+			&_spartak
+				sprite($icon-spartak)
+
+			&_zirtek
+				sprite($icon-zirtek)
+
+			&_infiniti
+				sprite($icon-infiniti)
+
+			&_huggies
+				sprite($icon-huggies)
+
+		& + &
+			margin-left 98px
+
+@media only screen and (min-width: 1500px) and (max-width: 1599px)
+	.clients
+
+		&__row
+
+			&_interval_104
+
+				& .clients__item + .clients__item
+					margin-left 85px
+
+		&__item
+
+			& + &
+				margin-left 83px
+
+@media only screen and (min-width: 1400px) and (max-width: 1499px)
+	.clients
+
+		&__row
+
+			&_interval_104
+
+				& .clients__item + .clients__item
+					margin-left 70px
+
+		&__item
+
+			& + &
+				margin-left 70px
+
+@media only screen and (min-width: 1300px) and (max-width: 1399px)
+	.clients
+
+		&-container
+			padding 130px 70px 160px
+
+		&__row
+
+			& + &
+				margin-top 100px
+
+			&_interval_104
+
+				& .clients__item + .clients__item
+					margin-left 63px
+
+		&__item
+
+			& + &
+				margin-left 63px
+
+@media only screen and (max-width: 1299px)
+	.clients
+
+		&-container
+			padding 110px 50px 140px
+
+		&__row
+
+			&_interval_104
+
+				& .clients__item + .clients__item
+					margin-left 53px
+
+		&__item
+
+			& + &
+				margin-left 55px
+

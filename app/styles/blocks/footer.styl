@@ -1,0 +1,96 @@
+.footer
+	position absolute
+	bottom 0
+	left 0
+	width 100%
+	height 100px
+	background-color #000
+
+	&__partner
+		margin-right 30px
+		padding-top 20px
+		float right
+		height 100%
+
+		&-text
+			margin-bottom 14px
+			font-family ubuntu-r
+			font-size 14px
+			color rgba(255, 255, 255, .1)
+			text-transform uppercase
+			letter-spacing 1.7px
+
+	&__logo
+		width 105px
+		height 30px
+		line-height 30px
+		display inline-block
+		text-align center
+		background-color #fff
+		border-left 10px solid $trn
+
+		& + &
+			margin-left 8px
+
+		&:nth-child(2)
+			border-color #fcc900
+
+		&:nth-child(3)
+			border-color #57b7ed
+
+		&:nth-child(4)
+			border-color #246189
+
+	&__yandex
+		margin-top 4px
+		display inline-block
+		vertical-align top
+		sprite($logo-yandex)
+
+	&__google
+		margin-top 6px
+		display inline-block
+		vertical-align top
+		sprite($logo-google)
+
+	&__vk
+		margin-top 8px
+		display inline-block
+		vertical-align top
+		sprite($logo-vk)
+
+	&__copy
+		padding 25px 30px
+		display inline-block
+		height 100%
+		line-height 19px
+		font-family ubuntu-b
+
+		&_font_reg
+			font-family ubuntu-r
+
+		&-logo
+			margin-right 13px
+			display inline-block
+			font-size 19px
+			text-transform uppercase
+			text-decoration none
+			color rgba(255, 255, 255, .1)
+			letter-spacing 3px
+
+		&-est
+			padding-left 15px
+			display inline-block
+			font-size 13px
+			text-transform uppercase
+			color rgba(255, 255, 255, .1)
+			letter-spacing 1.5px
+			border-left 3px solid rgba(255, 255, 255, .1)
+
+		&-law
+			margin-top 13px
+			padding-left 5px
+			font-family ubuntu-r
+			font-size 13px
+			color rgba(255, 255, 255, .1)
+			letter-spacing 1.6px

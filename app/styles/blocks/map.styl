@@ -1,0 +1,60 @@
+.map
+	padding 162px 0px
+	width 100%
+	height 600px
+	background-color #252525
+
+	&-wrap
+		margin 0 auto
+		width 170px
+		height 270px
+		text-align center
+
+	&__icon
+		margin 0 auto
+		sprite($icon-map)
+
+	&__title
+		margin-top 9px
+		font-family officina-book-r
+		font-size 20px
+		color #fff
+		letter-spacing 4px
+		text-transform uppercase
+
+	&__address
+		margin-top 22px
+		font-family ubuntu-r
+		font-size 14px
+		line-height 18px
+		color #fff
+
+	&__btn
+		position relative
+		margin-top 103px
+		width 100%
+		height 45px
+		font-family ubuntu-l
+		font-size 16px
+		line-height 41px
+		color #f1655c
+		text-transform uppercase
+		text-align center
+		border 2px solid #f1655c
+		background-color $trn
+		cursor pointer
+		transition all .3s ease
+
+		&:hover
+			color #000
+			background-color #f1655c
+
+		&:before
+			position absolute
+			top -8px
+			left 50%
+			margin-left -6px
+			content ''
+			border-left 6px solid $trn
+			border-right 6px solid $trn
+			border-bottom 8px solid #f1655c

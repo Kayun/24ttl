@@ -1,0 +1,56 @@
+mixin serviceItem(obj)
+	.service__item
+		img.service__item-img(src= obj.img)
+
+		.service__item-wrap
+			h2.service__item-title(class= obj.titleMod ? obj.titleMod : "")= obj.title
+			.service__item-separator(class= obj.sepMod ? obj.sepMod : "" role="separator")
+			p.service__item-text(class= obj.textMod ? obj.textMod : "")!= obj.text
+			.service__item-btn(class= obj.btnMod ? obj.btnMod : "")
+
+section#services.service
+
+	+serviceItem({
+		img: "assets/images/content/service-img1.jpg",
+		title: "Разработка веб-сайтов",
+		sepMod: "service__item-separator_color_white",
+		titleMod: "service__item-title_color_white",
+		textMod: "service__item-text_color_white service__item-text_p_85",
+		text: "Сайты, лендинги и&nbsp;интернет-магазины с&nbsp;нуля, дизайн и&nbsp;редизайн, оптимизация, техподдержка и&nbsp;продвижение."
+	})
+
+	+serviceItem({
+		img: "assets/images/content/service-img2.jpg",
+		title: "Поддержка сайтов",
+		btnMod: "service__item-btn_color_black",
+		text: "Техническая поддержка и&nbsp;обслуживание сайтов, внедрение новых социальных и&nbsp;маркетинговых инструментов, продвижение и&nbsp;модернизация веб-ресурсов."
+	})
+
+	+serviceItem({
+		img: "assets/images/content/service-img3.jpg",
+		title: "Social SEO",
+		btnMod: "service__item-btn_color_black",
+		text: "Оптимизируем группы в&nbsp;соцсетях и&nbsp;блоги для увеличения конверсии пользователей, привлечения новых клиентов и&nbsp;большей узнаваемости бренда в&nbsp;Сети."
+	})
+
+	+serviceItem({
+		img: "assets/images/content/service-img4.jpg",
+		title: "SEO",
+		text: "Выводим сайт на топовые позиции в&nbsp;результатах, оптимизируем содержание сайта, делаем каждую веб-страницу полезной и&nbsp;удобной для пользователя. "
+	})
+
+	+serviceItem({
+		img: "assets/images/content/service-img5.jpg",
+		title: "Social CRM",
+		sepMod: "service__item-separator_color_white",
+		titleMod: "service__item-title_color_white",
+		textMod: "service__item-text_color_white",
+		text: "Строим отношения с&nbsp;клиентами в&nbsp;интернет-среде, создаем положительный онлайн-имидж, грамотно управляем группами в&nbsp;соцсетях."
+	})
+
+	+serviceItem({
+		img: "assets/images/content/service-img6.jpg",
+		title: "Media",
+		btnMod: "service__item-btn_color_black",
+		text: "Создаем репутацию бренда в&nbsp;Сети, работаем с&nbsp;отзывами и&nbsp;пожеланиями клиентов напрямую, помогаем пользователям и&nbsp;привлекаем новых."
+	})
