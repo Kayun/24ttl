@@ -18,6 +18,7 @@ $(function () {
 		$keiseContainer = $('.js-keise-open'),
 		$keisePag = $('.js-keise-pag'),
 		$keiseBtn = $('.js-keise-button'),
+		$keiseBtnClose = $('.js-keise-close'),
 		$sliderOpen = $('.js-slider-open'),
 		$sliderClose = $('.js-slider-close'),
 		$html = $('html'),
@@ -34,9 +35,9 @@ $(function () {
 		headerSlider, keisesSlider, keisesSliderOpen,
 		map, marker,
 		slidesObj = {
-			'width320': 3,
-			'width1300': 6,
-			'width1600': 9,
+			width320: 3,
+			width1300: 6,
+			width1600: 9,
 		};
 
 	toolsSliderResize();
@@ -45,13 +46,13 @@ $(function () {
 		iconMenuPosition();
 		$window.resize(function () {
 			iconMenuPosition();
-			toolsSliderResize()
+			toolsSliderResize();
 		});
 
 	} else {
 		$window.resize(function () {
 			iconMenuPosition();
-			toolsSliderResize()
+			toolsSliderResize();
 		});
 	}
 
@@ -107,60 +108,122 @@ $(function () {
 		prevButton: '.keises__open-prev'
 	});
 
-	$keiseContainer.on('click', function() {
-		var $this = $(this),
-			classOpen = 'keises-open',
-			classOpenTopLeft = 'keises-open_pos_tl',
-			classOpenTopRight = 'keises-open_pos_tr',
-			classOpenBottomLeft = 'keises-open_pos_bl',
-			classOpenBottomRight = 'keises-open_pos_br',
-			classTopLeft = 'keises__slide-item_pos_tl',
-			classTopRight = 'keises__slide-item_pos_tr',
-			classBottomLeft = 'keises__slide-item_pos_bl',
-			classBottomRight = 'keises__slide-item_pos_br',
-			slideIndex;
+	$('.keise-open__slider').each(function () {
+		var id = $(this).attr('id'),
+			pag = $(this).parent().find('.keise-open__pagination').get(0),
+			sliders = {};
 
-		slideIndex = $this.attr('data-index');
-		keisesSliderOpen.slideTo(slideIndex, 0);
+		sliders[id] = new Swiper ('#' + id, {
+			direction: 'vertical',
+			speed: 500,
+			simulateTouch: false,
+			pagination: pag,
+			paginationHide: false,
+			paginationClickable: true
+		});
 
-		$this.addClass(classOpen);
-		$keisePag.addClass(keisePagHideClass);
-		setTimeout(function () {
-			$keisePag.hide();
-			$keiseBtn.addClass(keiseShowClass);
-		}, 500);
-		setTimeout(function () {
-			$sliderOpen.addClass(sliderOpenZClass);
-			$sliderOpen.find('.keise-open').addClass(sliderOpenShowClass);
-		}, 1000)
-		$this.find('.keise-wrap').addClass(keiseWrapHideClass);
-		$this.find('.keise__title').addClass(keiseTitleHideClass);
-		if ($this.hasClass(classTopLeft)) {
-			$this.siblings('.' + classTopRight).addClass('keises-close_pos_r');
-			$this.siblings('.' + classBottomLeft).addClass('keises-close_pos_b');
-			$this.siblings('.' + classBottomRight).addClass('keises-close_pos_br');
-		}
+	});
 
-		if ($this.hasClass(classTopRight)) {
-			$this.siblings('.' + classTopLeft).addClass('keises-close keises-close_pos_l');
-			$this.siblings('.' + classBottomLeft).addClass('keises-close keises-close_pos_bl');
-			$this.siblings('.' + classBottomRight).addClass('keises-close keises-close_pos_b');
-		}
+	$keiseContainer.each(function () {
+		$(this).on('click', function () {
+			var $this = $(this),
+				classOpen = 'keises-open',
+				classTopLeft = 'keises__slide-item_pos_tl',
+				classTopRight = 'keises__slide-item_pos_tr',
+				classBottomLeft = 'keises__slide-item_pos_bl',
+				classBottomRight = 'keises__slide-item_pos_br',
+				$keiseTopLeft = $('.' + classTopLeft),
+				$keiseTopRight = $('.' + classTopRight),
+				$keiseBottomLeft = $('.' + classBottomLeft),
+				$keiseBottomRight = $('.' + classBottomRight),
+				slideIndex;
 
-		if ($this.hasClass(classBottomLeft)) {
-			$this.siblings('.' + classTopRight).addClass('keises-close keises-close_pos_tr');
-			$this.siblings('.' + classTopLeft).addClass('keises-close keises-close_pos_t');
-			$this.siblings('.' + classBottomRight).addClass('keises-close keises-close_pos_r');
-		}
+			slideIndex = $this.attr('data-index');
+			keisesSliderOpen.slideTo(slideIndex, 0);
 
-		if ($this.hasClass(classBottomRight)) {
-			$this.siblings('.' + classTopRight).addClass('keises-close keises-close_pos_t');
-			$this.siblings('.' + classBottomLeft).addClass('keises-close keises-close_pos_l');
-			$this.siblings('.' + classTopLeft).addClass('keises-close keises-close_pos_tl');
-		}
+			$this.addClass(classOpen);
+			$keisePag.addClass(keisePagHideClass);
 
-	})
+			setTimeout(function () {
+				$keisePag.hide();
+				$keiseBtn.addClass(keiseShowClass);
+			}, 500);
 
+			setTimeout(function () {
+				$sliderOpen.addClass(sliderOpenZClass);
+				$sliderOpen.find('.keise-open').addClass(sliderOpenShowClass);
+			}, 1000);
+
+			setTimeout(function () {
+				$this.removeClass(classOpen);
+
+				$keiseTopLeft.removeClass('keises-close_pos_l keises-close_pos_t keises-close_pos_tl');
+				$keiseTopRight.removeClass('keises-close_pos_r keises-close_pos_tr keises-close_pos_t');
+				$keiseBottomLeft.removeClass('keises-close_pos_b keises-close_pos_bl keises-close_pos_l');
+				$keiseBottomRight.removeClass('keises-close_pos_br keises-close_pos_b keises-close_pos_r');
+
+				$keiseTopLeft.addClass('keises-close_pos_tl');
+				$keiseTopRight.addClass('keises-close_pos_tr');
+				$keiseBottomLeft.addClass('keises-close_pos_bl');
+				$keiseBottomRight.addClass('keises-close_pos_br');
+
+				$this.find('.keise-wrap').removeClass(keiseWrapHideClass);
+				$this.find('.keise__title').removeClass(keiseTitleHideClass);
+			}, 1500);
+
+			$this.find('.keise-wrap').addClass(keiseWrapHideClass);
+			$this.find('.keise__title').addClass(keiseTitleHideClass);
+
+			if ($this.hasClass(classTopLeft)) {
+				$this.siblings('.' + classTopRight).addClass('keises-close_pos_r');
+				$this.siblings('.' + classBottomLeft).addClass('keises-close_pos_b');
+				$this.siblings('.' + classBottomRight).addClass('keises-close_pos_br');
+			}
+
+			if ($this.hasClass(classTopRight)) {
+				$this.siblings('.' + classTopLeft).addClass('keises-close_pos_l');
+				$this.siblings('.' + classBottomLeft).addClass('keises-close_pos_bl');
+				$this.siblings('.' + classBottomRight).addClass('keises-close_pos_b');
+			}
+
+			if ($this.hasClass(classBottomLeft)) {
+				$this.siblings('.' + classTopRight).addClass('keises-close_pos_tr');
+				$this.siblings('.' + classTopLeft).addClass('keises-close_pos_t');
+				$this.siblings('.' + classBottomRight).addClass('keises-close_pos_r');
+			}
+
+			if ($this.hasClass(classBottomRight)) {
+				$this.siblings('.' + classTopRight).addClass('keises-close_pos_t');
+				$this.siblings('.' + classBottomLeft).addClass('keises-close_pos_l');
+				$this.siblings('.' + classTopLeft).addClass('keises-close_pos_tl');
+			}
+
+			$keiseBtnClose.each(function () {
+				$(this).on('click', function () {
+					var index = $(this).parent().parent().parent().parent().index(),
+						keiseIndex = $sliderClose.find('[data-index=' + index + ']').parent().index();
+
+					keisesSlider.slideTo(keiseIndex, 0);
+
+					$sliderOpen.removeClass(sliderOpenZClass);
+					$sliderOpen.find('.keise-open').removeClass(sliderOpenShowClass);
+
+					$keisePag.show();
+					$keiseBtn.removeClass(keiseShowClass);
+
+					setTimeout(function () {
+						$keisePag.removeClass(keisePagHideClass);
+
+						$keiseTopLeft.removeClass('keises-close_pos_tl');
+						$keiseTopRight.removeClass('keises-close_pos_tr');
+						$keiseBottomLeft.removeClass('keises-close_pos_bl');
+						$keiseBottomRight.removeClass('keises-close_pos_br');
+
+					}, 500);
+				});
+			});
+		});
+	});
 
 	// слайдер в блоке tools
 	// slider in the block tools
@@ -172,7 +235,7 @@ $(function () {
 			slides = slidesObj.width320;
 		} else if ($window.width() > 320 && $window.width() <= 1300) {
 			slides = slidesObj.width1300;
-		} else if ($window.width() > 1300){
+		} else if ($window.width() > 1300) {
 			slides = slidesObj.width1600;
 		}
 
@@ -221,7 +284,7 @@ $(function () {
 
 	ymaps.ready(function () {
 		map = new ymaps.Map('mapPlan', {
-			center: [55.7715,37.6120],
+			center: [55.7715, 37.6120],
 			zoom: 14,
 			controls: [
 				'geolocationControl',
@@ -241,12 +304,12 @@ $(function () {
 		setTimeout(function () {
 			map.setCenter([55.7723, 37.5970], 17, {
 				duration: 1000
-			})
+			});
 		}, 500);
 
-		setTimeout(function() {
+		setTimeout(function () {
 			map.geoObjects.add(marker);
-		}, 1500)
-	})
+		}, 1500);
+	});
 
 });
