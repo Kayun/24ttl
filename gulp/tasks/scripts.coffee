@@ -10,7 +10,7 @@ paths        = require '../paths'
 gulp.task 'scripts', ->
 	gulp.src [
 			'components/jquery/dist/jquery.min.js'
-			'components/swiper/dist/js/swiper.jquery.min.js'
+			'components/swiper/dist/idangerous.swiper.js'
 			'app/scripts/common.js'
 		]
 		.pipe plumber errorHandler: errorHandler

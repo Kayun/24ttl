@@ -31,7 +31,7 @@ gulp.task 'copy:scripts', ->
 gulp.task 'copy:components', ->
 	gulp.src [
 			'jquery/dist/jquery.min.js'
-			'swiper/dist/js/swiper.jquery.js'
+			'swiper/dist/idangerous.swiper.js'
 			'respond/dest/respond.min.js'
 		],
 			base: 'components'

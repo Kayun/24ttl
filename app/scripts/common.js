@@ -18,6 +18,10 @@ $(function () {
 		$keiseContainer = $('.js-keise-open'),
 		$keisePag = $('.js-keise-pag'),
 		$keiseBtn = $('.js-keise-button'),
+		$keiseSliderPrev = $('.js-keise-prev'),
+		$toolsSliderPrev = $('.js-tools-prev'),
+		$keiseSliderNext = $('.js-keise-next'),
+		$toolsSliderNext = $('.js-tools-next'),
 		$keiseBtnClose = $('.js-keise-close'),
 		$sliderOpen = $('.js-slider-open'),
 		$sliderClose = $('.js-slider-close'),
@@ -56,6 +60,8 @@ $(function () {
 		});
 	}
 
+
+
 	// раскрытие меню
 	// disclosure menu
 
@@ -85,7 +91,8 @@ $(function () {
 		simulateTouch: false,
 		pagination: '.header__slider-pagination',
 		paginationHide: false,
-		paginationClickable: true
+		paginationClickable: true,
+		createPagination: true
 	});
 
 	// слайдер в блоке keises
@@ -97,15 +104,22 @@ $(function () {
 		simulateTouch: false,
 		pagination: '.keises__pagination',
 		paginationHide: false,
-		paginationClickable: true
+		paginationClickable: true,
+		createPagination: true
 	});
 
 	keisesSliderOpen = new Swiper ('.keises__open', {
 		direction: 'horizontal',
 		speed: 500,
 		simulateTouch: false,
-		nextButton: '.keises__open-next',
-		prevButton: '.keises__open-prev'
+	});
+
+	$keiseSliderPrev.on('click', function () {
+		keisesSliderOpen.swipePrev();
+	});
+
+	$keiseSliderNext.on('click', function () {
+		keisesSliderOpen.swipeNext();
 	});
 
 	$('.keise-open__slider').each(function () {
@@ -119,7 +133,8 @@ $(function () {
 			simulateTouch: false,
 			pagination: pag,
 			paginationHide: false,
-			paginationClickable: true
+			paginationClickable: true,
+			createPagination: true
 		});
 
 	});
@@ -139,7 +154,7 @@ $(function () {
 				slideIndex;
 
 			slideIndex = $this.attr('data-index');
-			keisesSliderOpen.slideTo(slideIndex, 0);
+			keisesSliderOpen.swipeTo(slideIndex, 0);
 
 			$this.addClass(classOpen);
 			$keisePag.addClass(keisePagHideClass);
@@ -155,6 +170,11 @@ $(function () {
 			}, 1000);
 
 			setTimeout(function () {
+				$this.hide();
+			}, 1500);
+
+			setTimeout(function () {
+				$this.show();
 				$this.removeClass(classOpen);
 
 				$keiseTopLeft.removeClass('keises-close_pos_l keises-close_pos_t keises-close_pos_tl');
@@ -203,10 +223,13 @@ $(function () {
 					var index = $(this).parent().parent().parent().parent().index(),
 						keiseIndex = $sliderClose.find('[data-index=' + index + ']').parent().index();
 
-					keisesSlider.slideTo(keiseIndex, 0);
+					keisesSlider.swipeTo(keiseIndex, 0);
 
-					$sliderOpen.removeClass(sliderOpenZClass);
+
 					$sliderOpen.find('.keise-open').removeClass(sliderOpenShowClass);
+					setTimeout(function () {
+						$sliderOpen.removeClass(sliderOpenZClass);
+					}, 500);
 
 					$keisePag.show();
 					$keiseBtn.removeClass(keiseShowClass);
@@ -242,14 +265,18 @@ $(function () {
 		toolsSlider = new Swiper ('.tools__slider', {
 			direction: 'horizontal',
 			speed: 200,
-			loop: true,
 			spaceBetween: 10,
 			slidesPerView: slides,
 			simulateTouch: false,
-			nextButton: '.tools__slider-next',
-			prevButton: '.tools__slider-prev'
 		});
 
+		$toolsSliderPrev.on('click', function () {
+			toolsSlider.swipePrev();
+		});
+
+		$toolsSliderNext.on('click', function () {
+			toolsSlider.swipeNext();
+		});
 	}
 
 
@@ -263,21 +290,6 @@ $(function () {
 		event.preventDefault();
 		$('html,body').animate({scrollTop: elemPosition}, 300);
 	});
-
-	// положение иконки меню на больших разрешениях
-	// position of the menu icons on the high resolutions
-
-	function iconMenuPosition() {
-		var windowWidth = $window.width(),
-			rightPosition = Math.round((windowWidth - 1600) / 2) + 52;
-
-		if ($window.width() > 1600) {
-			$mainMenuOpen.css('right', rightPosition);
-		} else {
-			$mainMenuOpen.css('right', 52);
-		}
-
-	}
 
 	// карта
 	// map
