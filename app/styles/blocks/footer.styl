@@ -16,7 +16,9 @@
 			margin-bottom 14px
 			font-family ubuntu-r
 			font-size 14px
-			color rgba(255, 255, 255, .1)
+			color #fff
+			opacity .1
+			filter unquote('progid:DXImageTransform.Microsoft.Alpha(opacity=10)')
 			text-transform uppercase
 			letter-spacing 1.7px
 
@@ -102,3 +104,33 @@
 			letter-spacing 1.6px
 			opacity .1
 			filter unquote('progid:DXImageTransform.Microsoft.Alpha(opacity=10)')
+
+@media only screen and (max-width: 320px)
+	.footer
+		height 165px
+
+		&__partner
+			margin 0
+			padding-top 10px
+			float none
+			height auto
+			font-size 0
+
+			&-text
+				margin-bottom 10px
+				padding 0 20px
+				font-size 12px
+				opacity .3
+				filter unquote('progid:DXImageTransform.Microsoft.Alpha(opacity=30)')
+
+		&__logo
+
+			& + &
+				margin-left 0
+
+		&__copy
+			padding 40px 20px
+
+			&-law
+				margin-top 6px
+				padding-left 0

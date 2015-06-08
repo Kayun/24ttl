@@ -275,6 +275,7 @@ $(function () {
 			elemPosition = $(elemId).offset().top;
 
 		event.preventDefault();
+		$mainMenu.removeClass(mainMenuOpenClass);
 		$('html,body').animate({scrollTop: elemPosition}, 300);
 	});
 
