@@ -15,6 +15,7 @@ $(function () {
 		$mapText = $('.js-map-text'),
 		$mapBg = $('.js-map-bg'),
 		$mapPlan = $('.js-map-plan'),
+		$blockKeises = $('#keises'),
 		$keiseContainer = $('.js-keise-open'),
 		$keisePag = $('.js-keise-pag'),
 		$keiseBtn = $('.js-keise-button'),
@@ -126,6 +127,17 @@ $(function () {
 
 	});
 
+	function mobileKeise() {
+		if ($window.width() <= 320) {
+			heightKeises();
+		}
+	}
+
+	function heightKeises() {
+		var keiseHeight = $sliderOpen.height();
+		$blockKeises.css('height', keiseHeight);
+	}
+
 	$keiseContainer.each(function () {
 		$(this).on('click', function () {
 			var $this = $(this),
@@ -146,15 +158,26 @@ $(function () {
 			$this.addClass(classOpen);
 			$keisePag.addClass(keisePagHideClass);
 
+			if ($window.width() <= 320) {
+				$this.hide();
+				$this.siblings().hide();
+				mobileKeise();
+				$sliderOpen.addClass(sliderOpenZClass);
+				$sliderOpen.find('.keise-open').addClass(sliderOpenShowClass);
+
+			} else {
+				setTimeout(function () {
+					$sliderOpen.addClass(sliderOpenZClass);
+					$sliderOpen.find('.keise-open').addClass(sliderOpenShowClass);
+				}, 1000);
+			}
+
 			setTimeout(function () {
 				$keisePag.hide();
 				$keiseBtn.addClass(keiseShowClass);
 			}, 500);
 
-			setTimeout(function () {
-				$sliderOpen.addClass(sliderOpenZClass);
-				$sliderOpen.find('.keise-open').addClass(sliderOpenShowClass);
-			}, 1000);
+
 
 			setTimeout(function () {
 				$this.hide();
@@ -210,9 +233,14 @@ $(function () {
 					var index = $(this).parent().parent().parent().parent().index(),
 						keiseIndex = $sliderClose.find('[data-index=' + index + ']').parent().index();
 
+					if ($window.width() <= 320) {
+						$keiseContainer.show();
+					}
+
 					keisesSlider.swipeTo(keiseIndex, 0);
 
 
+					$blockKeises.css('height', 550);
 					$sliderOpen.find('.keise-open').removeClass(sliderOpenShowClass);
 					setTimeout(function () {
 						$sliderOpen.removeClass(sliderOpenZClass);
