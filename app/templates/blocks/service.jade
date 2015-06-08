@@ -3,7 +3,7 @@ mixin serviceItem(obj)
 		img.service__item-img(src= obj.img)
 
 		.service__item-wrap
-			h2.service__item-title(class= obj.titleMod ? obj.titleMod : "")= obj.title
+			h2.service__item-title(class= obj.titleMod ? obj.titleMod : "")!= obj.title
 			.service__item-separator(class= obj.sepMod ? obj.sepMod : "" role="separator")
 			p.service__item-text(class= obj.textMod ? obj.textMod : "")!= obj.text
 			.service__item-btn(class= obj.btnMod ? obj.btnMod : "")
@@ -12,7 +12,7 @@ section#services.service
 
 	+serviceItem({
 		img: "assets/images/content/service-img1.jpg",
-		title: "Разработка веб-сайтов",
+		title: "Разработка веб&nbsp;-&nbsp;сайтов",
 		sepMod: "service__item-separator_color_white",
 		titleMod: "service__item-title_color_white",
 		textMod: "service__item-text_color_white service__item-text_p_85",

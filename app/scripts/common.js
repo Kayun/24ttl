@@ -45,22 +45,9 @@ $(function () {
 		};
 
 	toolsSliderResize();
-
-	if ($window.width() > 1600) {
-		iconMenuPosition();
-		$window.resize(function () {
-			iconMenuPosition();
-			toolsSliderResize();
-		});
-
-	} else {
-		$window.resize(function () {
-			iconMenuPosition();
-			toolsSliderResize();
-		});
-	}
-
-
+	$window.resize(function () {
+		toolsSliderResize();
+	});
 
 	// раскрытие меню
 	// disclosure menu
@@ -86,7 +73,7 @@ $(function () {
 	// slider in the block header
 
 	headerSlider = new Swiper ('.header__slider', {
-		direction: 'horizontal',
+		mode: 'horizontal',
 		speed: 500,
 		simulateTouch: false,
 		pagination: '.header__slider-pagination',
@@ -99,7 +86,7 @@ $(function () {
 	// slider in the block keises
 
 	keisesSlider = new Swiper ('.keises__slider', {
-		direction: 'horizontal',
+		mode: 'horizontal',
 		speed: 500,
 		simulateTouch: false,
 		pagination: '.keises__pagination',
@@ -109,7 +96,7 @@ $(function () {
 	});
 
 	keisesSliderOpen = new Swiper ('.keises__open', {
-		direction: 'horizontal',
+		mode: 'horizontal',
 		speed: 500,
 		simulateTouch: false,
 	});
@@ -128,8 +115,8 @@ $(function () {
 			sliders = {};
 
 		sliders[id] = new Swiper ('#' + id, {
-			direction: 'vertical',
 			speed: 500,
+			mode: 'vertical',
 			simulateTouch: false,
 			pagination: pag,
 			paginationHide: false,
@@ -263,7 +250,7 @@ $(function () {
 		}
 
 		toolsSlider = new Swiper ('.tools__slider', {
-			direction: 'horizontal',
+			mode: 'horizontal',
 			speed: 200,
 			spaceBetween: 10,
 			slidesPerView: slides,

@@ -31,6 +31,7 @@
 		display inline-block
 		vertical-align middle
 
+
 @media only screen and (max-width: 1399px)
 
 	.clients
@@ -83,6 +84,81 @@
 
 				&_huggies
 					sprite($icon-huggies-mini)
+
+@media only screen and (max-width: 320px)
+
+	.clients
+
+		&-container
+			padding 52px 20px 13px
+			width auto
+
+		&__item
+			margin-bottom 34px
+			height 45px
+
+			& + &
+				margin-left 60px
+
+			&_width
+
+				&_320
+					margin-left 0 !important
+
+				&_1600
+					margin-left 63px !important
+
+				&_1000
+					margin-left 63px !important
+
+		&__logo
+
+			&_type
+
+				&_mumu
+					sprite($icon-wokker-micro)
+
+				&_wokker
+					sprite($icon-mumu-micro)
+
+				&_ap
+					sprite($icon-kp-micro)
+
+				&_kp
+					sprite($icon-qiwi-micro)
+
+				&_qiwi
+					sprite($icon-fh-micro)
+
+				&_fb
+					sprite($icon-chocolate-micro)
+
+				&_fh
+					sprite($icon-zvooq-micro)
+
+				&_peugeot
+					sprite($icon-spartak-micro)
+
+				&_chocolate
+					sprite($icon-zirtek-micro)
+
+				&_star
+					sprite($icon-infiniti-micro)
+
+				&_zvooq
+					sprite($icon-ap-micro)
+
+				&_spartak
+					sprite($icon-clients-fb-micro)
+
+				&_zirtek
+					sprite($icon-star-micro)
+
+				&_infiniti
+					sprite($icon-peugeot-micro)
+
+				&_huggies
+					sprite($icon-huggies-micro)
 
 @media only screen and (min-width: 1300px)
 
@@ -137,7 +213,7 @@
 				&_huggies
 					sprite($icon-huggies)
 
-@media only screen and (max-width: 1099px)
+@media only screen and (min-width: 321px) and (max-width: 1099px)
 
 	.clients
 

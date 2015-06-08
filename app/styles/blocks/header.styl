@@ -85,7 +85,66 @@
 			width 100%
 			text-align center
 
-@media only screen and (max-width: 1099px)
+@media only screen and (max-width: 320px)
+	.header
+		height 540px
+
+		&-wrap
+			position fixed
+			z-index 100
+			top 0
+			left 0
+			width 100%
+			height 40px
+			background-color #000
+
+		&__menu-icon
+			top 12px
+			left 274px
+			height 15px
+			width 25px
+
+			&:before
+				top 7px
+				height 2px
+				box-shadow 0 -7px #fff, 0 7px #fff
+
+			&:hover
+
+				&:before
+					box-shadow 0 -7px #fff, 0 7px #fff
+
+		&__logo
+			top 13px
+			left 20px
+			font-size 15px
+			letter-spacing 2px
+
+		&__slider
+			padding-top 40px
+			height 500px
+			box-sizing content-box
+
+			&-pagination
+				bottom 20px
+
+			&-slide
+				padding 112px 20px 57px
+
+			&-title
+				font-size 30px
+
+			&-text
+				margin 17px 0 0
+				width auto
+				font-size 14px
+				line-height 22px
+
+			img
+				width 1142px
+				height 500px
+
+@media only screen and (max-width: 1099px) and (min-width: 321px)
 	.header
 		height 500px
 

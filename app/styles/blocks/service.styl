@@ -100,7 +100,78 @@
 				&:before
 					color #000
 
-@media only screen and (max-width: 1099px)
+@media only screen and (max-width: 320px)
+	.service
+
+		&__item
+			min-width 320px
+			width 100%
+			height 300px
+
+			&-img
+				position absolute
+				width auto
+				height auto
+
+			&:nth-child(1)
+
+				.service__item-img
+					left -135px
+					top -120px
+
+			&:nth-child(2)
+
+				.service__item-img
+					left -380px
+					top -125px
+
+			&:nth-child(3)
+
+				.service__item-img
+					left -470px
+					top 0
+
+			&:nth-child(4)
+
+				.service__item-img
+					left -390px
+					top -90px
+
+			&:nth-child(5)
+
+				.service__item-img
+					left -425px
+					top 0px
+
+			&:nth-child(6)
+
+				.service__item-img
+					left -115px
+					top -85px
+
+			&-wrap
+				padding 66px 8% 0px
+
+			&-title
+				width 100%
+				font-size 24px
+				line-height 30px
+
+			&-separator
+				margin 9px auto
+
+			&-text
+				font-size 14px
+				line-height 20px
+
+				&_p_85
+					padding 0
+
+			&-btn
+				top 16px
+				right 20px
+
+@media only screen and (max-width: 1099px) and (min-width: 321px)
 	.service
 
 		&__item

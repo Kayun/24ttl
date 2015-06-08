@@ -132,7 +132,41 @@
 		opacity 1
 		filter unquote('progid:DXImageTransform.Microsoft.Alpha(opacity=100)')
 
-@media only screen and (max-width: 1099px)
+@media only screen and (max-width: 320px)
+	.keises
+		height 550px
+
+		&__slider
+		&__open
+			height 500px
+
+		&__pagination
+			top 16px
+			right 21px
+
+		&__slide-item
+			height 125px
+			width 100%
+
+			&_pos
+
+				&_tl
+					top 0
+					left 0
+
+				&_tr
+					top 125px
+					right 0
+
+				&_bl
+					top 250px
+					left 0
+
+				&_br
+					top 375px
+					right 0
+
+@media only screen and (min-width: 321px) and (max-width: 1099px)
 	.keises
 		height 800px
 
