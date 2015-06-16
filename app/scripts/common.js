@@ -37,8 +37,9 @@ $(function () {
 		keiseShowClass = 'keises-show',
 		keiseWrapHideClass = 'keise-wrap_state_hide',
 		keiseTitleHideClass = 'keise__title_state_hide',
-		headerSlider, keisesSlider, keisesSliderOpen,
+		headerSlider, keisesSlider, keisesSliderOpen, toolsSlider,
 		map, marker,
+		flag = false,
 		slidesObj = {
 			width320: 3,
 			width1300: 6,
@@ -265,7 +266,7 @@ $(function () {
 	// slider in the block tools
 
 	function toolsSliderResize() {
-		var slides, toolsSlider;
+		var slides;
 
 		if ($window.width() <= 320) {
 			slides = slidesObj.width320;
@@ -275,22 +276,32 @@ $(function () {
 			slides = slidesObj.width1600;
 		}
 
-		toolsSlider = new Swiper ('.tools__slider', {
-			mode: 'horizontal',
-			speed: 200,
-			spaceBetween: 10,
-			slidesPerView: slides,
-			simulateTouch: false,
-		});
+		if (!flag) {
+			toolsSlider = new Swiper ('.tools__slider', {
+				mode: 'horizontal',
+				speed: 200,
+				spaceBetween: 10,
+				slidesPerView: slides,
+				simulateTouch: false
+			});
+			flag = !flag;
 
-		$toolsSliderPrev.on('click', function () {
-			toolsSlider.swipePrev();
-		});
+		} else {
+			if (toolsSlider.params.slidesPerView !== slides) {
+				toolsSlider.params.slidesPerView = slides;
+				toolsSlider.reInit();
+			}
+		}
 
-		$toolsSliderNext.on('click', function () {
-			toolsSlider.swipeNext();
-		});
 	}
+
+	$toolsSliderPrev.on('click touchstart', function () {
+		toolsSlider.swipePrev();
+	});
+
+	$toolsSliderNext.on('click touchstart', function () {
+		toolsSlider.swipeNext();
+	});
 
 
 	// плавный скролл
