@@ -235,12 +235,10 @@ $(function () {
 
 					if ($window.width() <= 320) {
 						$keiseContainer.show();
+						$blockKeises.css('height', 550);
 					}
 
 					keisesSlider.swipeTo(keiseIndex, 0);
-
-
-					$blockKeises.css('height', 550);
 					$sliderOpen.find('.keise-open').removeClass(sliderOpenShowClass);
 					setTimeout(function () {
 						$sliderOpen.removeClass(sliderOpenZClass);
