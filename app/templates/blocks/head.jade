@@ -24,6 +24,7 @@ head
 	meta(name='copyright' content=pageCopyright)
 
 	link(href='assets/styles/common.css' rel='stylesheet')
+	link(href="http://vjs.zencdn.net/4.12/video-js.css" rel="stylesheet")
 
 	!= "<!--[if IE 8]>"
 		link(href='assets/styles/ie8.css' rel='stylesheet')
@@ -40,4 +41,5 @@ head
 			document.createElement('footer');
 	!= "<![endif]-->"
 
+	script(src="http://vjs.zencdn.net/4.12/video.js")
 	script(src="//api-maps.yandex.ru/2.1/?lang=ru_RU")

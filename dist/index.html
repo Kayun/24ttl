@@ -19,6 +19,7 @@
 		<meta name="keywords">
 		<meta name="copyright">
 		<link href="assets/styles/common.css" rel="stylesheet">
+		<link href="http://vjs.zencdn.net/4.12/video-js.css" rel="stylesheet">
 		<!--[if IE 8]><link href="assets/styles/ie8.css" rel="stylesheet"><script src="assets/scripts/libs/respond/dest/respond.min.js"></script><![endif]-->
 		<!--[if lt IE 9]><script>document.createElement('header');
 document.createElement('nav');
@@ -26,6 +27,7 @@ document.createElement('section');
 document.createElement('article');
 document.createElement('aside');
 document.createElement('footer');</script><![endif]-->
+		<script src="http://vjs.zencdn.net/4.12/video.js"></script>
 		<script src="//api-maps.yandex.ru/2.1/?lang=ru_RU"></script>
 	</head>
 
@@ -35,43 +37,31 @@ document.createElement('footer');</script><![endif]-->
 				<div class="header-wrap"><a href="javascript:void(0);" class="header__logo">24ttl</a>
 					<div class="header__menu-icon js-menu-open"></div>
 				</div>
-				<div class="header__slider swiper-container">
-					<div class="swiper-wrapper">
-						<div class="swiper-slide">
-							<div class="header__slider-slide">
-								<div class="header__slider-title">О нас #1</div>
-								<div class="header__slider-text">24TTL — команда специалистов из самых разных IT-областей, которая может решить любую — нестандартную, сложную, нереальную — задачу, связанную с&nbsp;созданием и&nbsp;обслуживанием веб-ресурсов, формированием онлайн&nbsp;-&nbsp;имиджа и&nbsp;повышением
-									продаж с&nbsp;помощью digital-технологий.</div>
-							</div>
-							<img src="assets/images/header-img1.jpg">
-						</div>
-						<div class="swiper-slide">
-							<div class="header__slider-slide">
-								<div class="header__slider-title">О нас #2</div>
-								<div class="header__slider-text">24TTL — команда специалистов из самых разных IT-областей, которая может решить любую — нестандартную, сложную, нереальную — задачу, связанную с&nbsp;созданием и&nbsp;обслуживанием веб-ресурсов, формированием онлайн&nbsp;-&nbsp;имиджа и&nbsp;повышением
-									продаж с&nbsp;помощью digital-технологий.</div>
-							</div>
-							<img src="assets/images/header-img1.jpg">
-						</div>
-						<div class="swiper-slide">
-							<div class="header__slider-slide">
-								<div class="header__slider-title">О нас #3</div>
-								<div class="header__slider-text">24TTL — команда специалистов из самых разных IT-областей, которая может решить любую — нестандартную, сложную, нереальную — задачу, связанную с&nbsp;созданием и&nbsp;обслуживанием веб-ресурсов, формированием онлайн&nbsp;-&nbsp;имиджа и&nbsp;повышением
-									продаж с&nbsp;помощью digital-технологий.</div>
-							</div>
-							<img src="assets/images/header-img1.jpg">
-						</div>
-						<div class="swiper-slide">
-							<div class="header__slider-slide">
-								<div class="header__slider-title">О нас #4</div>
-								<div class="header__slider-text">24TTL — команда специалистов из самых разных IT-областей, которая может решить любую — нестандартную, сложную, нереальную — задачу, связанную с&nbsp;созданием и&nbsp;обслуживанием веб-ресурсов, формированием онлайн&nbsp;-&nbsp;имиджа и&nbsp;повышением
-									продаж с&nbsp;помощью digital-технологий.</div>
-							</div>
-							<img src="assets/images/header-img1.jpg">
-						</div>
-					</div>
-					<div class="header__slider-pagination"></div>
+				<div class="header__video">
+					<div class="header__video-mask"></div>
+					<video id="headerVideo" preload="auto" autoplay loop class="video-js vjs-default-skin">
+						<source src="video/video1.mp4" type="video/mp4">
+					</video>
 				</div>
+				<!--.header__slider.swiper-container.swiper-wrapper
+
+ each index in [1, 2, 3, 4]
+  .swiper-slide
+   .header__slider-slide
+   
+    .header__slider-title О нас #
+    
+    .header__slider-text
+     | 24TTL — команда специалистов из самых разных IT-областей,
+     | которая может решить любую — нестандартную, сложную,
+     | нереальную — задачу, связанную с&nbsp;созданием и&nbsp;обслуживанием
+     | веб-ресурсов, формированием онлайн&nbsp;-&nbsp;имиджа и&nbsp;повышением
+     | продаж с&nbsp;помощью digital-технологий.
+     
+   img(src="assets/images/header-img1.jpg")
+   
+   
+.header__slider-pagination-->
 			</header>
 			<div id="mainMenu" class="menu">
 				<div role="button" class="menu__btn-close js-menu-close"></div>
@@ -112,59 +102,51 @@ document.createElement('footer');</script><![endif]-->
 			</div>
 			<section id="services" class="service">
 				<div class="service__item">
-					<img src="assets/images/content/service-img1.jpg" class="service__item-img">
+					<img src="assets/images/content/service-img2.jpg" class="service__item-img">
 					<div class="service__item-wrap">
-						<h2 class="service__item-title service__item-title_color_white">Разработка веб&nbsp;-&nbsp;сайтов</h2>
-						<div role="separator" class="service__item-separator service__item-separator_color_white"></div>
-						<p class="service__item-text service__item-text_color_white service__item-text_p_85">Сайты, лендинги и&nbsp;интернет-магазины с&nbsp;нуля, дизайн и&nbsp;редизайн, оптимизация, техподдержка и&nbsp;продвижение.</p>
+						<h2 class="service__item-title">Поддержка проектов</h2>
+						<div role="separator" class="service__item-separator"></div>
+						<p class="service__item-text">Мониторинг и&nbsp;управление контентом, модернизация веб-ресурсов, внедрение нового функционала, техническая поддержка в&nbsp;режиме&nbsp;24/7</p>
 						<div class="service__item-btn"></div>
 					</div>
 				</div>
 				<div class="service__item">
-					<img src="assets/images/content/service-img2.jpg" class="service__item-img">
+					<img src="assets/images/content/service-img1.jpg" class="service__item-img">
 					<div class="service__item-wrap">
-						<h2 class="service__item-title">Поддержка сайтов</h2>
-						<div role="separator" class="service__item-separator"></div>
-						<p class="service__item-text">Техническая поддержка и&nbsp;обслуживание сайтов, внедрение новых социальных и&nbsp;маркетинговых инструментов, продвижение и&nbsp;модернизация веб&nbsp-&nbspресурсов.</p>
-						<div class="service__item-btn service__item-btn_color_black"></div>
-					</div>
-				</div>
-				<div class="service__item">
-					<img src="assets/images/content/service-img3.jpg" class="service__item-img">
-					<div class="service__item-wrap">
-						<h2 class="service__item-title">Social SEO</h2>
-						<div role="separator" class="service__item-separator"></div>
-						<p class="service__item-text">Оптимизируем группы в&nbsp;соцсетях и&nbsp;блоги для увеличения конверсии пользователей, привлечения новых клиентов и&nbsp;большей узнаваемости бренда в&nbsp;Сети.</p>
-						<div class="service__item-btn service__item-btn_color_black"></div>
-					</div>
-				</div>
-				<div class="service__item">
-					<img src="assets/images/content/service-img4.jpg" class="service__item-img">
-					<div class="service__item-wrap">
-						<h2 class="service__item-title">SEO</h2>
-						<div role="separator" class="service__item-separator"></div>
-						<p class="service__item-text">Выводим сайт на топовые позиции в&nbsp;результатах, оптимизируем содержание сайта, делаем каждую веб&nbsp-&nbspстраницу полезной и&nbsp;удобной для пользователя.</p>
+						<h2 class="service__item-title service__item-title_color_white service__item-title_w_a">Разработка веб&nbsp;-&nbsp;решений для&nbsp;бизнеса</h2>
+						<div role="separator" class="service__item-separator service__item-separator_color_white"></div>
+						<p class="service__item-text service__item-text_color_white">Создание новых технологических решений для&nbsp;вашего бизнеса, оптимизация и&nbsp;сопровождение существующих проектов, интеграфия систем CRM и&nbsp;ERP, веб-разработка E-commerce полного цикла.</p>
 						<div class="service__item-btn"></div>
 					</div>
 				</div>
 				<div class="service__item">
 					<img src="assets/images/content/service-img5.jpg" class="service__item-img">
 					<div class="service__item-wrap">
-						<h2 class="service__item-title service__item-title_color_white">Social CRM</h2>
+						<h2 class="service__item-title service__item-title_color_white service__item-title_w_a">Диджитал-стратегия</h2>
 						<div role="separator" class="service__item-separator service__item-separator_color_white"></div>
-						<p class="service__item-text service__item-text_color_white">Строим отношения с&nbsp;клиентами в&nbsp;интернет&nbsp-&nbspсреде, создаем положительный онлайн&nbsp-&nbspимидж, грамотно управляем группами в&nbsp;соцсетях.</p>
+						<p class="service__item-text service__item-text_color_white">Разработка стратегии продвижения бизнеса в&nbsp;сети Интернет, комплексный подход к&nbsp;планированию и&nbsp;реализации маркетинговых мероприятий с&nbsp;учетом индивидуальных особенностей компании-заказчика.</p>
 						<div class="service__item-btn"></div>
 					</div>
 				</div>
 				<div class="service__item">
-					<img src="assets/images/content/service-img6.jpg" class="service__item-img">
+					<img src="assets/images/content/service-img4.jpg" class="service__item-img">
 					<div class="service__item-wrap">
-						<h2 class="service__item-title">Media</h2>
+						<h2 class="service__item-title">SEO и SMO</h2>
 						<div role="separator" class="service__item-separator"></div>
-						<p class="service__item-text">Создаем репутацию бренда в&nbsp;Сети, работаем с&nbsp;отзывами и&nbsp;пожеланиями клиентов напрямую, помогаем пользователям и&nbsp;привлекаем новых.</p>
-						<div class="service__item-btn service__item-btn_color_black"></div>
+						<p class="service__item-text">Выводим сайт на топовые позиции в&nbsp;результатах, оптимизируем содержание сайта, делаем каждую веб&nbsp-&nbspстраницу полезной и&nbsp;удобной для пользователя.</p>
+						<div class="service__item-btn"></div>
 					</div>
 				</div>
+				<!--+serviceItem({img: "assets/images/content/service-img3.jpg",
+title: "Social SEO",
+btnMod: "service__item-btn_color_black",
+text: "Оптимизируем группы в&nbsp;соцсетях и&nbsp;блоги для увеличения конверсии пользователей, привлечения новых клиентов и&nbsp;большей узнаваемости бренда в&nbsp;Сети."-->
+				<!--})-->
+				<!--+serviceItem({img: "assets/images/content/service-img6.jpg",
+title: "Media",
+btnMod: "service__item-btn_color_black",
+text: "Создаем репутацию бренда в&nbsp;Сети, работаем с&nbsp;отзывами и&nbsp;пожеланиями клиентов напрямую, помогаем пользователям и&nbsp;привлекаем новых."-->
+				<!--})-->
 			</section>
 			<section id="clients" class="clients">
 				<div class="title title_bgc_orange">Клиенты</div>
@@ -1025,7 +1007,27 @@ document.createElement('footer');</script><![endif]-->
 							</div>
 							<div class="swiper-slide">
 								<div class="tools__slide">
+									<img src="assets/images/tools/html5.jpg">
+								</div>
+							</div>
+							<div class="swiper-slide">
+								<div class="tools__slide">
 									<img src="assets/images/tools/css3.jpg">
+								</div>
+							</div>
+							<div class="swiper-slide">
+								<div class="tools__slide">
+									<img src="assets/images/tools/android.jpg">
+								</div>
+							</div>
+							<div class="swiper-slide">
+								<div class="tools__slide">
+									<img src="assets/images/tools/ios.jpg">
+								</div>
+							</div>
+							<div class="swiper-slide">
+								<div class="tools__slide">
+									<img src="assets/images/tools/smarttv.jpg">
 								</div>
 							</div>
 							<div class="swiper-slide">
@@ -1153,8 +1155,8 @@ document.createElement('footer');</script><![endif]-->
 				</div>
 			</footer>
 		</div>
-		<script src="assets/scripts/debug.js?1434470386972"></script>
-		<script src="assets/scripts/common.min.js?1434470386972"></script>
+		<script src="assets/scripts/debug.js?1434820413388"></script>
+		<script src="assets/scripts/common.min.js?1434820413388"></script>
 	</body>
 
 </html>

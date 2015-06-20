@@ -280,6 +280,7 @@ $(function () {
 			toolsSlider = new Swiper ('.tools__slider', {
 				mode: 'horizontal',
 				speed: 200,
+				loop: true,
 				spaceBetween: 10,
 				slidesPerView: slides,
 				simulateTouch: false

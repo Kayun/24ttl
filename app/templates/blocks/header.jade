@@ -4,7 +4,14 @@ header#about.header(role="banner")
 		a.header__logo(href=jv0) 24ttl
 		.header__menu-icon.js-menu-open
 
-	.header__slider.swiper-container
+	.header__video
+
+		.header__video-mask
+
+		video#headerVideo.video-js.vjs-default-skin(preload="auto" autoplay loop)
+			source(src="video/video1.mp4" type="video/mp4")
+
+	//.header__slider.swiper-container
 		.swiper-wrapper
 
 			each index in [1, 2, 3, 4]
