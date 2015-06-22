@@ -9,9 +9,20 @@ header#about.header(role="banner")
 		.header__video-mask
 
 		video#headerVideo.video-js.vjs-default-skin(preload="auto" autoplay loop)
-			source(src="video/video1.mp4" type="video/mp4")
+			source(src=videoSrc type="video/mp4")
 
-	.header__slider.swiper-container
+	.header__slider-slide
+
+		.header__slider-title 24ttl
+
+		.header__slider-text
+			| Всегда комплексный подход к задачам онлайн-бизнеса.
+			br
+			| Никаких краткосрочных и малоэффективных решений.
+			br
+			| Никаких компромиссов.
+
+	//.header__slider.swiper-container
 		.swiper-wrapper
 
 			each index in [1, 2, 3, 4]
@@ -27,7 +38,7 @@ header#about.header(role="banner")
 							| веб-ресурсов, формированием онлайн&nbsp;-&nbsp;имиджа и&nbsp;повышением
 							| продаж с&nbsp;помощью digital-технологий.
 
-					//img(src="assets/images/header-img1.jpg")
+					img(src="assets/images/header-img1.jpg")
 
 
 		.header__slider-pagination
