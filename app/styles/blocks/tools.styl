@@ -29,19 +29,21 @@
 
 
 	&__slide
-		width 95px
-		height 95px
+		display table-cell
+		vertical-align middle
 
 		img
 			width 100%
+			display inline-block
 
 @media only screen and (max-width: 320px)
 	.tools
 
 		&-container
-			padding 53px 20px 52px
+			padding 40px 20px 40px
 
 		&__slider
+			height 70px
 
 			&-next
 			&-prev
@@ -52,3 +54,5 @@
 
 			&-prev
 				right 62px
+		&__slide
+			size(70px)

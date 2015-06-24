@@ -43,7 +43,7 @@ $(function () {
 		slidesObj = {
 			width320: 3,
 			width1300: 6,
-			width1600: 9,
+			width1600: 6,
 		};
 
 	toolsSliderResize();
